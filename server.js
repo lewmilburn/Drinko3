@@ -19,4 +19,5 @@ app.listen(port, () => {
     console.log(`[STARTUP] Drinko3 listening on port ${port}`)
 })
 
-require('./processes/database');
+let sqlConnect = require('./processes/database');
+sqlConnect();
