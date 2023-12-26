@@ -3,6 +3,8 @@ const {join} = require("path");
 const app = express()
 const port = 80
 
+console.log(`[STARTUP] Starting Drinko3...`);
+
 app.engine('.html', require('ejs').__express);
 app.set('views', join(__dirname, 'views'));
 app.use(express.static(join(__dirname, 'static')));
@@ -16,7 +18,7 @@ app.get("/g/*", function(req, res) {
 });
 
 app.listen(port, () => {
-    console.log(`[STARTUP] Drinko3 listening on port ${port}`)
+    console.log(`[STARTUP] Drinko3 listening on port ${port}`);
 })
 
 let sqlConnect = require('./processes/database');
