@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main { @apply px-std py-std; }
+
+.px-std { @apply lg:px-16 md:px-12 sm:px-8 px-4; }
+.py-std { @apply lg:py-12 md:py-10 sm:py-6 py-2; }
+
+.spacer-lg { @apply lg:pt-12 md:pt-10 sm:pt-8 pt-6; }
+
+h1 { @apply txt-xl font-bold; }
+h2 { @apply txt-lg font-bold; }
+
+.txt-xl { @apply lg:text-5xl md:text-4xl sm:text-3xl text-2xl; }
+.txt-lg { @apply lg:text-3xl md:text-2xl sm:text-xl text-lg; }
+.txt-md { @apply lg:text-2xl md:text-xl sm:text-lg text-base; }
+
+.center-item { @apply mx-auto max-w-xl; }
+
+input { @apply bg-neutral-100 border border-neutral-500 px-4 py-2 appearance-none; }
+
+.btn { @apply px-2 py-1 transition duration-200; }
+.btn-lg { @apply px-4 py-2 w-full transition duration-200; }
+
+.btn-blue { @apply bg-blue-500 hover:bg-blue-400 text-white; }
+
+.alert { @apply flex space-x-2; }
+
+.alert-red { @apply bg-red-200 border-red-900 w-full; }
+.alert-red .alert-icon { @apply text-xl bg-red-900 text-red-200 self-center; aspect-ratio: 1 }
+.alert-red p { @apply px-2 py-1 text-red-900 self-center; }
+
+.alert-yellow { @apply bg-yellow-200 border-yellow-900 w-full; }
+.alert-yellow .alert-icon { @apply text-xl bg-yellow-900 text-yellow-200 self-center; aspect-ratio: 1 }
+.alert-yellow p { @apply px-2 py-1 text-yellow-900 self-center; }
+
+.alert-blue { @apply bg-blue-200 border-blue-900 w-full; }
+.alert-blue .alert-icon { @apply text-xl bg-blue-900 text-blue-200 self-center; aspect-ratio: 1 }
+.alert-blue p { @apply px-2 py-1 text-blue-900 self-center; }

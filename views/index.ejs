@@ -1,4 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Drinko³</title>
+        <%- include('./common/vendors') %>
+    </head>
+    <body>
+        <%- include('./common/alert') %>
+        <main>
+            <h1 class="text-center">Drinko³</h1>
 
+            <div class="spacer-lg"></div>
+
+            <div class="text-center center-item grid gap-4">
+                <label for="code" class="txt-md">Game code</label>
+                <input type="text" pattern="[0-9]*" maxlength="6" id="code" class="txt-lg">
+
+                <button onclick="join()" class="btn-lg btn-blue txt-md">
+                    Join
+                </button>
+
+                <div class="spacer-lg"></div>
+
+                <div>
+                    <p><strong>Welcome to Drinko³, yet another Drinko game.</strong></p>
+                    <p>Do not refresh the page or use the browser's back button whilst playing, this will kick you from the game.</p>
+                </div>
+                <div>
+                    <p><strong>Disclaimer</strong></p>
+                    <p>This game is dirty and contains adult themes, don't play it with your parents.</p>
+                    <p>You must be 18+ to play.</p>
+                    <p>This game will get you drunk. Always drink responsibly. When the fun stops, stop.</p>
+                </div>
+            </div>
+        </main>
+        <script src="/js/join.js"></script>
+        <%- include('./common/scripts') %>
+    </body>
 </html>
