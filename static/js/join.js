@@ -1,6 +1,8 @@
 function join() {
     let code = document.getElementById('code').value;
-    if (code.length === 6 && !isNaN(code)) {
+    let name = document.getElementById('name').value;
+    if (verifyGameCode(code) && name.length !== 0) {
+        localStorage.setItem('name', name);
         window.location = '/g/'+code;
     } else {
         alert(Alert.error, 'Invalid game code.');

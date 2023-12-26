@@ -12,6 +12,8 @@
             <div class="spacer-lg"></div>
 
             <div class="text-center center-item grid gap-4">
+                <label for="name" class="txt-md">Name</label>
+                <input type="text" maxlength="15" id="name" class="txt-lg">
                 <label for="code" class="txt-md">Game code</label>
                 <input type="text" pattern="[0-9]*" maxlength="6" id="code" class="txt-lg">
 
@@ -34,6 +36,7 @@
             </div>
         </main>
         <script src="/js/join.js"></script>
+        <script>localStorage.clear();</script>
         <%- include('./common/scripts') %>
     </body>
 </html>

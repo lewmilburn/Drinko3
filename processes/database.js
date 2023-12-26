@@ -10,7 +10,7 @@ module.exports = function() {
 
     con.connect(function(err) {
         if (err) throw err;
-        console.log(`[STARTUP] Connected to database "`+process.env.DB_NAME+`"`);
+        console.log(`[STARTUP] Database started, connected to "`+process.env.DB_NAME+`"`);
     });
 
     return con;
