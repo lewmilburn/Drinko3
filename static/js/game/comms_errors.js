@@ -1,8 +1,12 @@
 socket.on('disconnect', function(){
-    alert(Alert.warning, 'Disconnected from server, rejoining...')
+    showAlert(Alert.warning, 'Disconnected from server, rejoining...')
     console.log('Disconnect');
 });
 socket.on('connect_error', function(error){
-    alert(Alert.warning, 'Unable to connect to the server. Error: ' + error + ' - retrying...')
+    showAlert(Alert.warning, 'Unable to connect to the server. ' + error + ' - retrying...')
     console.log('Disconnect');
+});
+socket.on('error', function(e){
+    console.log(e);
+    showAlert(Alert.error, 'Unexpected error, you may need to reload the page. See JavaScript console for more information.');
 });

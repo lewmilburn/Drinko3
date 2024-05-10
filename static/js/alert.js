@@ -1,4 +1,4 @@
-function alert(type, message) {
+function showAlert(type, message) {
     let alertBox = document.getElementById('alert-box');
     let alertMessage = document.getElementById('alert-message');
     let alertIcon = document.getElementById('alert-icon');
