@@ -1,12 +1,13 @@
 const express = require('express')
 const {join} = require("path");
+
+require('dotenv').config();
+
 const app = express()
-const webport = 80
+const webport = process.env.PORT_HTTP
 const socketport = 4040
 
 let rooms = [];
-
-require('dotenv').config();
 
 console.log(`[STARTUP] Starting Drinko3...`);
 
