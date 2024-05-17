@@ -18,5 +18,6 @@ module.exports = function(log) {
     } catch (e) {
         log.info('[DB][500] Error connecting to the database - '+e);
         socket.emit('error', e);
+        return false;
     }
 }
