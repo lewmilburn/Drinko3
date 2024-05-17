@@ -1,4 +1,4 @@
-module.exports = function(log) {
+module.exports = async function(log) {
     try {
         let mysql = require('mysql');
 

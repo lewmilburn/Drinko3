@@ -18,11 +18,13 @@ module.exports = function (io, webport, rooms, log) {
             io.sockets.emit('joined',rooms[room]);
         });
 
-        socket.on('new_game', function(name) {
+        socket.on('new_game', async function (name) {
             name = he.escape(name);
             let room = Math.floor(100000 + Math.random() * 900000);
 
-            let db = require(__dirname + '/database')(log);
+            let db = await require(__dirname + '/database')(log);
+
+            console.log(db);
 
             if (db !== false) {
                 db.query("INSERT INTO `games` (`id`, `gameID`, `host`) VALUES (NULL, '" + room + "', " + db.escape(name) + ")", function (error) {
