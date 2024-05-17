@@ -3,7 +3,7 @@ const { join } = require("path");
 
 require('dotenv').config();
 
-const webport = 80;//process.env.PORT
+const webport = process.env.PORT;
 const log4js = require('log4js');
 
 let app = express();
