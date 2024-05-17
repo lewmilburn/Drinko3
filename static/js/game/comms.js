@@ -1,4 +1,4 @@
-const socket = io(':80', {
+const socket = io('', {
     reconnectionDelay: 1000,
     reconnection: true,
     reconnectionAttemps: 10,
