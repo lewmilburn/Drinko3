@@ -1,15 +1,23 @@
 const express = require('express')
-const {join} = require("path");
+const { join } = require("path");
 
 require('dotenv').config();
 
 const app = express()
 const webport = process.env.PORT_HTTP
 const socketport = 4040
+const log4js = require('log4js');
+
+log4js.configure({
+    appenders: { everything: { type: 'file', filename: 'logs.log' } },
+    categories: { default: { appenders: ['everything'], level: 'ALL' } }
+});
+
+const log = log4js.getLogger();
 
 let rooms = [];
 
-console.log(`[STARTUP] Starting Drinko3...`);
+log.info(`[STARTUP] Starting Drinko3...`);
 
 app.engine('.html', require('ejs').__express);
 app.set('views', join(__dirname, 'views'));
@@ -23,15 +31,12 @@ app.get("/g/*", function(req, res) {
     res.render('game.ejs');
 });
 
-console.log(`[STARTUP] Starting socket...`);
+log.info(`[STARTUP] Starting socket...`);
 
-require('./processes/socket')(app, socketport, rooms);
+require('./processes/socket')(app, socketport, rooms, log);
 
-console.log(`[STARTUP] Starting database...`);
-
-//let sqlConnect = require('./processes/database');
-//sqlConnect();
+log.info(`[STARTUP] Starting database...`);
 
 app.listen(webport, () => {
-    console.log(`[STARTUP] Drinko3 listening on port ${webport}`);
+    log.info(`[STARTUP] Drinko3 listening on port ${webport}`);
 })

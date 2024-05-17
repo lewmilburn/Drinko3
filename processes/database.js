@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(log) {
     let mysql = require('mysql');
 
     let con = mysql.createConnection({
@@ -10,7 +10,7 @@ module.exports = function() {
 
     con.connect(function(err) {
         if (err) throw err;
-        console.log(`[STARTUP] Database started, connected to "`+process.env.DB_NAME+`"`);
+        log.info(`[STARTUP] Database started, connected to "`+process.env.DB_NAME+`"`);
     });
 
     return con;
