@@ -17,7 +17,7 @@ const log = log4js.getLogger();
 
 let rooms = [];
 
-log.info(`[STARTUP] Starting Drinko3...`);
+log.info(`[STARTUP][200] Starting Drinko3...`);
 
 app.engine('.html', require('ejs').__express);
 app.set('views', join(__dirname, 'views'));
@@ -31,12 +31,14 @@ app.get("/g/*", function(req, res) {
     res.render('game.ejs');
 });
 
-log.info(`[STARTUP] Starting socket...`);
+log.info(`[STARTUP][200] Starting socket...`);
 
 require('./processes/socket')(app, socketport, rooms, log);
 
-log.info(`[STARTUP] Starting database...`);
-
-app.listen(webport, () => {
-    log.info(`[STARTUP] Drinko3 listening on port ${webport}`);
-})
+try {
+    app.listen(webport, () => {
+        log.info(`[STARTUP][200] Drinko3 listening on port ${webport}`);
+    })
+} catch (e) {
+    log.error("[STARTUP][503] "+e);
+}
