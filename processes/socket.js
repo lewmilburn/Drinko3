@@ -1,11 +1,12 @@
 let http = require("http");
-let { socketIo } = require("socket.io");
+let socketIo = require("socket.io");
 
 const he = require('he');
 
 module.exports = function (app, socketport, rooms, log) {
     let server = http.createServer(app);
     let io = socketIo(server);
+
     io.on("connection", function (socket) {
         socket.on('join', function(room, name) {
             room = he.escape(room);
@@ -53,5 +54,5 @@ module.exports = function (app, socketport, rooms, log) {
 
     io.listen(socketport);
 
-    console.log(`[STARTUP][200] Socket started`);
+    log.info(`[STARTUP][200] Socket started`);
 }
