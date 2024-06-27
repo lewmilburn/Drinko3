@@ -4,38 +4,57 @@
         <title>Drinko³</title>
         <%- include('./common/vendors') %>
     </head>
-    <body>
+    <body class="flex flex-col">
         <%- include('./common/alert') %>
-        <main>
-            <h1 class="text-center">Drinko³</h1>
-
-            <div class="spacer-lg"></div>
-
-            <div class="text-center center-item grid gap-4">
-                <label for="name" class="txt-md">Name</label>
-                <input type="text" maxlength="15" id="name" class="txt-lg">
-                <label for="code" class="txt-md">Game code</label>
-                <input type="text" pattern="[0-9]*" maxlength="6" id="code" class="txt-lg">
-
-                <button onclick="join()" class="btn-lg btn-blue txt-md">
-                    Join
-                </button>
+        <div class="flex h-full">
+            <div class="m-auto">
+                <h1 class="text-center font-bold text-white" style="font-size: 5rem;">Drinko<sup class="text-5xl">3</sup></h1>
 
                 <div class="spacer-lg"></div>
 
-                <div>
-                    <p><strong>Welcome to Drinko³, yet another Drinko game.</strong></p>
-                    <p>Do not refresh the page or use the browser's back button whilst playing, this will kick you from the game.</p>
+                <div class="textbox" id="main_join">
+                    <div class="grid">
+                        <label for="name" class="txt-md hidden">Name</label>
+                        <input type="text" maxlength="12" id="name" class="txt-lg text-center" placeholder="Name">
+                    </div>
+                    <div class="grid">
+                        <label for="code" class="txt-md hidden">Game code</label>
+                        <input type="text" pattern="[0-9]*" maxlength="6" id="code" class="txt-lg text-center" placeholder="Game code">
+                    </div>
+
+                    <button onclick="join()" class="btn-lg btn-blue txt-md cursor-pointer">
+                        Join
+                    </button>
                 </div>
-                <div>
-                    <p><strong>Disclaimer</strong></p>
-                    <p>This game is dirty and contains adult themes, don't play it with your parents.</p>
-                    <p>You must be 18+ to play.</p>
-                    <p>This game will get you drunk. Always drink responsibly. When the fun stops, stop.</p>
+                <br id="main_spacer">
+                <div class="textbox" id="main_startnew">
+                    <button onclick="newgame()" class="btn-lg btn-blue txt-md cursor-pointer">
+                        Start new Game
+                    </button>
+                </div>
+                <div class="hidden" id="newgame">
+                    <div class="grid">
+                        <label for="newname" class="txt-md hidden">Name</label>
+                        <input type="text" maxlength="12" id="newname" class="txt-lg text-center" placeholder="Name">
+                    </div>
+                    <button onclick="start()" class="btn-lg btn-blue txt-md cursor-pointer">
+                        Start new Game
+                    </button>
                 </div>
             </div>
-        </main>
+        </div>
+
+        <div class="fixed bottom-2 left-0 right-0 text-center text-xs">
+            <p><strong>Disclaimer</strong></p>
+            <p>This game is dirty and contains adult themes, don't play it with your parents. You must be 18+ to play. This game will get you drunk. Always drink responsibly. When the fun stops, stop.</p>
+        </div>
+
+        <script src="/js/lib/socketio.js"></script>
+        <script src="/js/game/comms.js"></script>
+        <script src="/js/game/comms_errors.js"></script>
+        <script src="/js/game/socket_actions.js"></script>
         <script src="/js/join.js"></script>
+        <script src="/js/newgame.js"></script>
         <script>localStorage.clear();</script>
         <%- include('./common/scripts') %>
     </body>
