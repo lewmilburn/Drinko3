@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000', {
+const socket = io('', {
     reconnectionDelay: 1000,
     reconnection: true,
     reconnectionAttemps: 10,
@@ -9,6 +9,9 @@ const socket = io('http://localhost:3000', {
 });
 
 function joinRoom(gameCode) {
-    socket.emit('join',gameCode);
-    socket.emit('join_name',localStorage.getItem('name'));
+    socket.emit('join',gameCode,localStorage.getItem('name'));
+}
+
+function createRoom() {
+    socket.emit('new_game',localStorage.getItem('name'));
 }

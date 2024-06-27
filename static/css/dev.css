@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply bg-cover bg-no-repeat h-screen;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url("/images/main-bg.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 main { @apply px-std py-std; }
 
@@ -9,9 +22,10 @@ main { @apply px-std py-std; }
 
 .spacer-lg { @apply lg:pt-12 md:pt-10 sm:pt-8 pt-6; }
 
-h1 { @apply txt-xl font-bold; }
-h2 { @apply txt-lg font-bold; }
+h1 { @apply txt-xl; font-weight:800 }
+h2 { @apply txt-lg; font-weight:800 }
 
+.txt-2xl { @apply lg:text-7xl md:text-6xl sm:text-5xl text-4xl; }
 .txt-xl { @apply lg:text-5xl md:text-4xl sm:text-3xl text-2xl; }
 .txt-lg { @apply lg:text-3xl md:text-2xl sm:text-xl text-lg; }
 .txt-md { @apply lg:text-2xl md:text-xl sm:text-lg text-base; }
@@ -38,3 +52,7 @@ input { @apply bg-neutral-100 border border-neutral-500 px-4 py-2 appearance-non
 .alert-blue { @apply bg-blue-200 border-blue-900 w-full; }
 .alert-blue .alert-icon { @apply text-xl bg-blue-900 text-blue-200 self-center; aspect-ratio: 1 }
 .alert-blue p { @apply px-2 py-1 text-blue-900 self-center; }
+
+.textbox {
+    @apply text-center center-item grid gap-4 bg-white rounded-lg p-6
+}
