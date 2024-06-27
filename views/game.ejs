@@ -9,10 +9,30 @@
         <main>
             <h1 class="text-center">Drinko³</h1>
         </main>
+        <div class="flex h-full">
+            <div class="m-auto grid gap-4 hidden" id="game">
+                <div class="textbox">
+                    <p>
+                        Waiting for question...
+                    </p>
+                </div>
+            </div>
+            <div class="m-auto grid gap-4" id="waitingForStart">
+                <div class="textbox">
+                    <p id="players">
+                        Please wait for the host to start the game...
+                    </p>
+                </div>
+                <div class="textbox" id="hostControls">
+                </div>
+            </div>
+        </div>
         <%- include('./common/scripts') %>
         <script src="/js/lib/socketio.js"></script>
         <script src="/js/game/comms.js"></script>
         <script src="/js/game/comms_errors.js"></script>
+        <script src="/js/game/socket_players.js"></script>
         <script src="/js/game/join.js"></script>
+        <script src="/js/game/lobby.js"></script>
     </body>
 </html>
